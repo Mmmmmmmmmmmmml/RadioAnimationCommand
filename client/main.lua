@@ -1,3 +1,9 @@
+
+---- CONFIG
+
+local basicanim = "shoulder" ---- this is the animation that is used when the player does not set their animation
+---- options are: shoulder, chest, or handheld
+
 ---- Do not edit if you do not know what you"re doing ----
 
 function ShowNotification(text)
@@ -6,7 +12,7 @@ function ShowNotification(text)
     DrawNotification(false, false)
 end
 
-local animation = "shoulder"
+local animation = basicanim
 
 RegisterCommand("radioanimation", function(src, args, raw)
 
@@ -29,8 +35,7 @@ end, false)
 TriggerEvent('chat:addSuggestion', '/radioanimation', 'Change the radio animation', {
     { name="Animation", help="Pick one of these: handheld, shoulder, chest" }
 })
----comment function to handle radio animation
----@param enable boolean
+
 local function handleRadioAnim(enable)
     local ped = cache.ped
     local veh = cache.vehicle
@@ -59,7 +64,21 @@ local function handleRadioAnim(enable)
    exports["rpemotes"]:EmoteCancel()
 end
 
-
     AddEventHandler("pma-voice:radioActive", function(radioTalking)
         handleRadioAnim(radioTalking)
     end)
+
+    
+local an = false
+
+function g(arg)
+
+an = not an
+
+handleRadioAnim(an)
+
+end
+
+exports('animation', g)
+
+    
