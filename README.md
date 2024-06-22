@@ -10,6 +10,8 @@ Add ``setr voice_enableRadioAnim 0`` to your server.cfg
 
 **This WILL NOT work if you are using rp-radio**
 
+Works for sonoran radio and any PMA voice radio
+
 Download the release of [NativeUILua](https://github.com/FrazzIe/NativeUILua) and add it to your server
 
 Download the release of [ox_lib](https://github.com/overextended/ox_lib) from  & add it to your server.cfg or resources.cfg **BEFORE** `TAM_BetterRadioAnims`
@@ -23,7 +25,6 @@ Download [animations](https://www.gta5-mods.com/misc/leo-custom-anim) and add to
 
 **Add to rpemotes/client/AnimationListCustom.lua:**
 
-**Change `config.defaultEmote` to `wt3` or `wt4`**
 
 ``CustomDP.Emotes = {}``
 ```lua
